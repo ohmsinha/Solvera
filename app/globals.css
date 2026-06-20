@@ -1,0 +1,440 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Flux design tokens — adapted for Solvera AI
+   Warm paper neutrals + warm ink + a single pine-teal accent.
+   Editorial, restrained, premium. Neutrals carry the page.
+   ============================================================ */
+:root {
+  /* ---- Paper (light surfaces, warm bone neutrals) ---- */
+  --paper-0: #fbfaf7;
+  --paper-1: #f4f2ec;
+  --paper-2: #ece9e1;
+  --paper-3: #e2ded4;
+
+  /* ---- Ink (warm near-black text scale) ---- */
+  --ink-0: #16140f;
+  --ink-1: #2a2820;
+  --ink-2: #55524a;
+  --ink-3: #87837a;
+  --ink-4: #b5b1a6;
+
+  /* ---- Hairlines & borders ---- */
+  --line-0: #e6e2d9;
+  --line-1: #d8d3c7;
+  --line-2: #14130f;
+
+  /* ---- Accent: Flux Green (pine-teal) ---- */
+  --accent-0: #1c6b59;
+  --accent-1: #155749;
+  --accent-2: #0f4338;
+  --accent-soft: #e6efea;
+  --accent-line: #c6dcd2;
+  --accent-on-dark: #5cb89f;
+
+  /* ---- Inverted / dark surfaces (premium CTA, footer) ---- */
+  --ink-bg-0: #16150f;
+  --ink-bg-1: #201e16;
+  --ink-bg-2: #2c2a20;
+  --ink-line: #3a3830;
+  --on-ink-0: #f7f5ef;
+  --on-ink-1: #c5c1b4;
+  --on-ink-2: #908c7f;
+
+  /* ---- Status (muted, editorial) ---- */
+  --positive: #2f7a57;
+  --warning: #9a6b1e;
+  --critical: #9a3b2e;
+
+  /* ---- Semantic aliases ---- */
+  --surface-page: var(--paper-0);
+  --surface-raised: #ffffff;
+  --surface-card: #ffffff;
+  --surface-card-alt: var(--paper-1);
+  --surface-inverted: var(--ink-bg-0);
+
+  --text-strong: var(--ink-0);
+  --text-heading: var(--ink-1);
+  --text-body: var(--ink-2);
+  --text-muted: var(--ink-3);
+  --text-faint: var(--ink-4);
+  --text-accent: var(--accent-0);
+  --text-on-inverted: var(--on-ink-0);
+
+  --border-subtle: var(--line-0);
+  --border-default: var(--line-1);
+
+  --action-primary: var(--accent-0);
+  --action-primary-hover: var(--accent-1);
+  --focus-ring: rgba(28, 107, 89, 0.35);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* legacy aliases (kept so existing class refs resolve) */
+  --color-accent: var(--accent-0);
+  --color-accent-light: var(--accent-on-dark);
+  --color-ink: var(--ink-0);
+  --color-ink-muted: var(--ink-2);
+}
+
+/* ─── Base ─── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-1) transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* keep anchor targets clear of the fixed navbar */
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent-2);
+}
+
+/* ─── Editorial display headline (Newsreader serif) ─── */
+.headline-serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+}
+
+.headline-serif em,
+.serif-italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ─── Mono eyebrow / label ─── */
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+}
+
+/* ─── Spotlight button effect (kept; tuned for light surfaces) ─── */
+.btn-spotlight {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 120px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.18),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn-spotlight:hover::before {
+  opacity: 1;
+}
+
+.btn-spotlight > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Editorial card: white fill, hairline border, hover lift ─── */
+.editorial-card {
+  position: relative;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: transform 0.3s var(--ease-out), border-color 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
+}
+
+.editorial-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-1);
+  box-shadow: 0 12px 32px -16px rgba(22, 20, 15, 0.18);
+}
+
+/* ─── Flux range slider ─── */
+.flux-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--paper-3);
+  outline: none;
+  cursor: pointer;
+}
+
+/* filled track via gradient set inline with --fill (0–100%) */
+.flux-range {
+  background: linear-gradient(
+    to right,
+    var(--accent-0) 0%,
+    var(--accent-0) var(--fill, 0%),
+    var(--paper-3) var(--fill, 0%),
+    var(--paper-3) 100%
+  );
+}
+
+.flux-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--surface-card);
+  border: 2px solid var(--accent-0);
+  box-shadow: 0 1px 4px rgba(22, 20, 15, 0.18);
+  transition: transform 0.15s var(--ease-out);
+}
+
+.flux-range::-webkit-slider-thumb:hover {
+  transform: scale(1.12);
+}
+
+.flux-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--surface-card);
+  border: 2px solid var(--accent-0);
+  box-shadow: 0 1px 4px rgba(22, 20, 15, 0.18);
+}
+
+.flux-range:focus-visible {
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* ─── Flux select ─── */
+.flux-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--surface-card);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2355524a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  border: 1px solid var(--line-1);
+  border-radius: 8px;
+  padding: 0.7rem 2.4rem 0.7rem 0.9rem;
+  font-size: 0.9375rem;
+  color: var(--ink-0);
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+}
+
+.flux-select:hover {
+  border-color: var(--ink-3);
+}
+
+.flux-select:focus-visible {
+  outline: none;
+  border-color: var(--accent-0);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* tabular figures for metrics */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ─── Logo bar marquee ─── */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+
+.marquee-paused:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* ─── Ambient drift (hero background fields) ─── */
+@keyframes drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(4%, -5%) scale(1.06);
+  }
+}
+
+@keyframes drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-5%, 4%) scale(1.04);
+  }
+}
+
+.animate-drift-a {
+  animation: drift-a 18s ease-in-out infinite;
+}
+
+.animate-drift-b {
+  animation: drift-b 22s ease-in-out infinite;
+}
+
+/* ─── Scroll cue (hero) ─── */
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+.animate-scroll-cue {
+  animation: scroll-cue 1.8s var(--ease-out) infinite;
+}
+
+/* ─── Giant footer wordmark ─── */
+.wordmark-giant {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.85;
+  user-select: none;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ink-line);
+}
+
+/* ─── Reusable textures (add depth & rhythm, not colour) ─── */
+/* Faint editorial dot-grid — sits behind content on light surfaces */
+.texture-dots {
+  background-image: radial-gradient(rgba(22, 20, 15, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: -1px -1px;
+}
+.texture-dots-dark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: -1px -1px;
+}
+/* Fade a texture out toward the section edges so it never looks like wallpaper */
+.texture-fade {
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 100%);
+}
+
+/* Grain overlay — reusable; place as an absolutely-positioned child */
+.grain-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Tinted card — a touch more depth than the plain white editorial card */
+.editorial-card-tint {
+  position: relative;
+  background: linear-gradient(180deg, var(--surface-card) 0%, var(--paper-1) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: transform 0.3s var(--ease-out), border-color 0.3s var(--ease-out),
+    box-shadow 0.3s var(--ease-out);
+}
+.editorial-card-tint:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-line);
+  box-shadow: 0 18px 40px -20px rgba(22, 20, 15, 0.22);
+}
+
+/* ─── Integration-network graphic (dark band) ─── */
+/* Data pulses travelling along the connector paths toward the hub */
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -30;
+  }
+}
+.flow-line {
+  stroke-dasharray: 2 14;
+  animation: flow-dash 1.6s linear infinite;
+}
+/* Soft expanding ring on the central hub */
+@keyframes hub-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  80%,
+  100% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
+.hub-ping {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hub-ping 3.4s ease-out infinite;
+}
+
+/* ─── Respect reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
