@@ -23,7 +23,7 @@ const NEXT_STEPS = [
 const inputCls =
   "w-full bg-[var(--ink-bg-1)] border border-[var(--ink-line)] rounded-lg px-4 py-3 text-[15px] " +
   "text-[var(--on-ink-0)] placeholder:text-[var(--on-ink-2)] transition-colors duration-200 " +
-  "focus:outline-none focus:border-[var(--accent-on-dark)] focus:ring-[3px] focus:ring-[rgba(92,184,159,0.25)]";
+  "focus:outline-none focus:border-[var(--accent-on-dark)] focus:ring-[3px] focus:ring-[rgba(210,169,79,0.25)]";
 
 export default function ContactSection() {
   const [form, setForm] = useState({
@@ -354,7 +354,7 @@ export default function ContactSection() {
                           bg-[var(--accent-on-dark)] text-[var(--ink-bg-0)] text-sm font-semibold tracking-tight
                           hover:brightness-110 transition-all duration-200 cursor-pointer
                           disabled:opacity-60 disabled:cursor-wait active:translate-y-px
-                          focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[rgba(92,184,159,0.35)]"
+                          focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-[rgba(210,169,79,0.35)]"
                       >
                         {status === "sending" ? (
                           <>

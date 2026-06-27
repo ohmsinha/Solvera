@@ -61,17 +61,17 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2.5 group"
+          className="flex items-center group"
           aria-label="Solvera — home"
         >
-          <div className="w-7 h-7 rounded-md bg-[var(--accent-0)] flex items-center justify-center">
-            <span className="text-[var(--paper-0)] text-xs font-bold tracking-tight">
-              S
-            </span>
-          </div>
-          <span className="text-[15px] font-semibold tracking-tight text-[var(--ink-0)]">
-            Solvera
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/brand/solvera-horizontal.svg"
+            alt="Solvera"
+            width={116}
+            height={32}
+            className="h-8 w-auto"
+          />
         </Link>
 
         {/* Nav Links — desktop */}
@@ -91,7 +91,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           {/* CTA — desktop */}
           <div className="hidden sm:block">
-            <SpotlightButton variant="primary" href="#contact">
+            <SpotlightButton variant="primary" href="/#contact">
               Book a consultation
               <span className="ml-1.5 inline-block transition-transform group-hover:translate-x-0.5">
                 ↗
@@ -179,7 +179,7 @@ export default function Navbar() {
               >
                 <SpotlightButton
                   variant="primary"
-                  href="#contact"
+                  href="/#contact"
                   className="w-full"
                   onClick={() => setOpen(false)}
                 >

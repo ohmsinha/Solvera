@@ -74,16 +74,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-14">
           {/* Brand */}
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-6 h-6 rounded-md bg-[var(--accent-on-dark)] flex items-center justify-center">
-                <span className="text-[var(--ink-bg-0)] text-[10px] font-bold">
-                  S
-                </span>
-              </div>
-              <span className="text-[var(--on-ink-0)] text-sm font-semibold tracking-tight">
-                {SITE.name}
-              </span>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/solvera-horizontal-reversed.svg"
+              alt="Solvera"
+              width={152}
+              height={42}
+              className="h-10 w-auto mb-5"
+            />
             {/* Entity-defining sentence — written to be quotable by AI search */}
             <p className="text-[var(--on-ink-2)] text-sm max-w-sm leading-relaxed">
               {SITE.name} is an AI automation consultancy in the UAE. We design,

@@ -1,17 +1,26 @@
-import { Newsreader, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
+import { Playfair_Display, Marcellus, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE } from "./lib/site";
 
-/* Editorial display serif — hero & feature headlines, italic accent word */
-const newsreader = Newsreader({
+/* Brand display serif (Playfair Display) — wordmark, hero & feature
+   headlines, italic accent word */
+const playfair = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   display: "swap",
 });
 
-/* Workhorse sans — UI, body, most headings */
+/* Brand small-caps serif (Marcellus) — eyebrows, taglines, labels */
+const marcellus = Marcellus({
+  variable: "--font-marcellus",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
+
+/* Workhorse sans — UI, body, most paragraph text */
 const hanken = Hanken_Grotesk({
   variable: "--font-sans",
   subsets: ["latin"],
@@ -19,7 +28,7 @@ const hanken = Hanken_Grotesk({
   display: "swap",
 });
 
-/* Mono — eyebrows, labels, metrics */
+/* Mono — tabular metrics and small index numerals */
 const plexMono = IBM_Plex_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
@@ -92,14 +101,14 @@ export const metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#fbfaf7",
+  themeColor: "#f7f2e7",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${hanken.variable} ${plexMono.variable} antialiased`}
+      className={`${playfair.variable} ${marcellus.variable} ${hanken.variable} ${plexMono.variable} antialiased`}
     >
       <body className="bg-[var(--surface-page)] text-[var(--text-body)] font-[family-name:var(--font-sans)]">
         {children}

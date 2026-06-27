@@ -1,45 +1,52 @@
 @import "tailwindcss";
 
 /* ============================================================
-   Flux design tokens — adapted for Solvera
-   Warm paper neutrals + warm ink + a single pine-teal accent.
-   Editorial, restrained, premium. Neutrals carry the page.
+   Solvera brand tokens — Navy · Gold · Ivory
+   Navy #122140 is the primary (text, links, dark panels). Gold
+   #C8A24C is a precious accent ONLY — emblem, hairlines, dark-
+   section pops — never body text (per brand guide). Ivory #F5EFE2
+   carries the light surfaces. Restrained, editorial, premium.
    ============================================================ */
 :root {
-  /* ---- Paper (light surfaces, warm bone neutrals) ---- */
-  --paper-0: #fbfaf7;
-  --paper-1: #f4f2ec;
-  --paper-2: #ece9e1;
-  --paper-3: #e2ded4;
+  /* ---- Paper (light surfaces, warm ivory neutrals) ---- */
+  --paper-0: #f7f2e7;
+  --paper-1: #f0e9d8;
+  --paper-2: #e8dfca;
+  --paper-3: #ddd2b8;
 
-  /* ---- Ink (warm near-black text scale) ---- */
-  --ink-0: #16140f;
-  --ink-1: #2a2820;
-  --ink-2: #55524a;
-  --ink-3: #87837a;
-  --ink-4: #b5b1a6;
+  /* ---- Ink (navy text scale) ---- */
+  --ink-0: #122140;
+  --ink-1: #1b2c4d;
+  --ink-2: #3d4a66;
+  --ink-3: #6e7689;
+  --ink-4: #9da3b0;
 
   /* ---- Hairlines & borders ---- */
-  --line-0: #e6e2d9;
-  --line-1: #d8d3c7;
-  --line-2: #14130f;
+  --line-0: #e7dfcd;
+  --line-1: #d8ccb2;
+  --line-2: #122140;
 
-  /* ---- Accent: Flux Green (pine-teal) ---- */
-  --accent-0: #1c6b59;
-  --accent-1: #155749;
-  --accent-2: #0f4338;
-  --accent-soft: #e6efea;
-  --accent-line: #c6dcd2;
-  --accent-on-dark: #5cb89f;
+  /* ---- Accent: Navy primary (interactive), with a gold accent
+          reserved for hairlines, tints, and dark-section pops ---- */
+  --accent-0: #122140;          /* primary: links, button fill, light eyebrows */
+  --accent-1: #243a61;          /* hover (lighter navy) */
+  --accent-2: #0c1830;          /* deepest navy */
+  --accent-soft: #f1e8d2;       /* pale gold tint — icon-chip backgrounds */
+  --accent-line: #ddc890;       /* gold hairline — chip borders, accent rules */
+  --accent-on-dark: #d2a94f;    /* gold — accents/marks on navy surfaces */
 
-  /* ---- Inverted / dark surfaces (premium CTA, footer) ---- */
-  --ink-bg-0: #16150f;
-  --ink-bg-1: #201e16;
-  --ink-bg-2: #2c2a20;
-  --ink-line: #3a3830;
-  --on-ink-0: #f7f5ef;
-  --on-ink-1: #c5c1b4;
-  --on-ink-2: #908c7f;
+  /* ---- Gold (precious accent — sparing, non-text) ---- */
+  --gold-0: #c8a24c;
+  --gold-1: #b08c3c;
+
+  /* ---- Inverted / dark surfaces (premium CTA, footer) → Navy ---- */
+  --ink-bg-0: #122140;
+  --ink-bg-1: #182a4b;
+  --ink-bg-2: #21345a;
+  --ink-line: #2e4063;
+  --on-ink-0: #f5efe2;
+  --on-ink-1: #c9c3b4;
+  --on-ink-2: #8e97a8;
 
   /* ---- Status (muted, editorial) ---- */
   --positive: #2f7a57;
@@ -48,8 +55,8 @@
 
   /* ---- Semantic aliases ---- */
   --surface-page: var(--paper-0);
-  --surface-raised: #ffffff;
-  --surface-card: #ffffff;
+  --surface-raised: #fefcf6;
+  --surface-card: #fefcf6;
   --surface-card-alt: var(--paper-1);
   --surface-inverted: var(--ink-bg-0);
 
@@ -66,7 +73,7 @@
 
   --action-primary: var(--accent-0);
   --action-primary-hover: var(--accent-1);
-  --focus-ring: rgba(28, 107, 89, 0.35);
+  --focus-ring: rgba(18, 33, 64, 0.35);
 
   /* ---- Motion ---- */
   --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -101,26 +108,26 @@ body {
   color: var(--accent-2);
 }
 
-/* ─── Editorial display headline (Newsreader serif) ─── */
+/* ─── Editorial display headline (Playfair Display serif) ─── */
 .headline-serif {
   font-family: var(--font-serif), Georgia, serif;
   font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.04;
+  letter-spacing: -0.01em;
+  line-height: 1.06;
 }
 
 .headline-serif em,
 .serif-italic {
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
 }
 
-/* ─── Mono eyebrow / label ─── */
+/* ─── Eyebrow / small-caps label (Marcellus) ─── */
 .eyebrow {
-  font-family: var(--font-mono), monospace;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
+  font-family: var(--font-marcellus), Georgia, serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-accent);
 }
@@ -345,11 +352,11 @@ body {
 .wordmark-giant {
   font-family: var(--font-serif), Georgia, serif;
   font-weight: 500;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.02em;
   line-height: 0.85;
   user-select: none;
   color: transparent;
-  -webkit-text-stroke: 1px var(--ink-line);
+  -webkit-text-stroke: 1px rgba(200, 162, 76, 0.45);
 }
 
 /* ─── Reusable textures (add depth & rhythm, not colour) ─── */
