@@ -102,14 +102,6 @@ function VisualPanel({ item }) {
           </li>
         ))}
       </ul>
-      <div className="mt-8 pt-6 border-t border-[var(--line-0)] flex items-baseline justify-between">
-        <span className="headline-serif text-3xl text-[var(--accent-0)] tnum">
-          {item.heroMetric.value}
-        </span>
-        <span className="text-[var(--ink-3)] text-[13px] text-right max-w-[55%] leading-snug">
-          {item.heroMetric.label}
-        </span>
-      </div>
     </div>
   );
 }
@@ -283,27 +275,6 @@ export default function DetailView({ item, related }) {
                       {c.body}
                     </p>
                   </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      {/* ── Outcomes band ── */}
-      <section className="bg-[var(--paper-1)] border-t border-[var(--line-0)] px-6 sm:px-10 py-20">
-        <div className="max-w-[1200px] mx-auto">
-          <Reveal><p className="eyebrow mb-10 text-center">The numbers that matter</p></Reveal>
-          <Stagger className="grid grid-cols-1 sm:grid-cols-3 gap-5" stagger={0.1}>
-            {item.metrics.map((m) => (
-              <StaggerItem key={m.label}>
-                <div className="editorial-card h-full p-8 text-center">
-                  <p className="headline-serif text-4xl sm:text-5xl text-[var(--accent-0)] tnum">
-                    {m.value}
-                  </p>
-                  <p className="text-[var(--ink-3)] text-sm mt-3 leading-snug">
-                    {m.label}
-                  </p>
                 </div>
               </StaggerItem>
             ))}

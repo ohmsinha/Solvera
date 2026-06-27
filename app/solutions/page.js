@@ -7,12 +7,12 @@ import { SITE } from "../lib/site";
 export const metadata = {
   title: "Solutions",
   description:
-    "Solvera AI's pre-built systems: Inbox Agent, Pipeline, Parser, Desk, Pulse, and Scout — production-tested AI you can deploy in weeks, tuned to your data rather than rebuilt from scratch.",
+    "Solvera's system patterns: Inbox Agent, Pipeline, Parser, Desk, Pulse, and Scout — proven approaches we configure to your data and your tools, and deploy in weeks rather than building from a blank page.",
   alternates: { canonical: "/solutions" },
   openGraph: {
-    title: "Solutions — Solvera AI",
+    title: "Solutions — Solvera",
     description:
-      "Six production-tested AI systems, tuned to your data and live in weeks — not rebuilt from scratch.",
+      "Six reusable AI system patterns, configured to your data and your tools, and deployed in weeks.",
     url: "/solutions",
     type: "website",
   },
@@ -27,7 +27,7 @@ function jsonLd() {
         "@type": "CollectionPage",
         "@id": `${url}#webpage`,
         url,
-        name: "Solutions — Solvera AI",
+        name: "Solutions — Solvera",
         isPartOf: { "@id": `${SITE.url}/#website` },
         about: { "@id": `${SITE.url}/#organization` },
         description: metadata.description,
@@ -68,15 +68,8 @@ export default function SolutionsIndex() {
           eyebrow="Solutions"
           title="Pre-built systems, deployed in weeks."
           accentWords={["weeks."]}
-          intro="Production-tested systems we've shipped before — tuned to your data and live fast, not rebuilt from scratch. Each one owns a workflow end to end and reports against a number that matters."
+          intro="Patterns we build from — proven approaches we configure to your data and your tools, rather than starting from a blank page. Each one owns a workflow end to end."
           items={SOLUTIONS}
-          bandHeadline="Live in weeks, not quarters — and measured from day one."
-          stats={[
-            { value: "1.2 sec", label: "Inbound response time" },
-            { value: "0", label: "Leads dropped overnight" },
-            { value: "45 sec", label: "Per document, end to end" },
-            { value: "40%", label: "Faster support resolution" },
-          ]}
           counterpart={{
             href: "/services",
             label: "Browse services",

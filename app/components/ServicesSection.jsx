@@ -10,7 +10,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import Link from "next/link";
-import { Reveal, Stagger, StaggerItem, RevealText, Counter } from "./Motion";
+import { Reveal, Stagger, StaggerItem, RevealText } from "./Motion";
 
 const SERVICES = [
   {
@@ -55,13 +55,6 @@ const SERVICES = [
     body: "Bespoke models and secure integrations wired into your stack, built to fit your operations rather than the other way round.",
     outcome: "Fits your systems",
   },
-];
-
-const STATS = [
-  { to: 10, suffix: "M+", label: "Requests resolved monthly", highlight: false },
-  { to: 99, suffix: "%", label: "Uptime reliability", highlight: false },
-  { to: 3.2, decimals: 1, suffix: "×", label: "Faster lead response", highlight: true },
-  { to: 6, suffix: " wks", label: "To first deployment", highlight: false },
 ];
 
 export default function ServicesSection() {
@@ -138,32 +131,12 @@ export default function ServicesSection() {
           })}
         </Stagger>
 
-        {/* Stats strip */}
-        <Stagger
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-5"
-          stagger={0.1}
-        >
-          {STATS.map((stat) => (
-            <StaggerItem key={stat.label}>
-              <div className="editorial-card p-6 text-center h-full">
-                <p
-                  className={`headline-serif text-3xl sm:text-4xl tnum ${
-                    stat.highlight ? "text-[var(--accent-0)]" : "text-[var(--ink-0)]"
-                  }`}
-                >
-                  <Counter
-                    to={stat.to}
-                    decimals={stat.decimals || 0}
-                    suffix={stat.suffix}
-                  />
-                </p>
-                <p className="text-[var(--ink-3)] text-sm mt-2 leading-snug">
-                  {stat.label}
-                </p>
-              </div>
-            </StaggerItem>
-          ))}
-        </Stagger>
+        {/* Honest forward-looking target — not a claimed past result */}
+        <Reveal delay={0.15}>
+          <p className="mt-16 text-center text-[var(--ink-3)] text-sm">
+            First production deployment typically within 4–6 weeks.
+          </p>
+        </Reveal>
       </div>
     </section>
   );

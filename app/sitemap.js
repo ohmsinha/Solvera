@@ -13,6 +13,9 @@ export default function sitemap() {
     { url: `${base}/services`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/solutions`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/industries`, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/about`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${base}/terms`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
   const details = CATALOG.map((item) => ({

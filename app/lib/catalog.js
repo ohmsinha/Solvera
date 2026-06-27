@@ -20,12 +20,10 @@
      name        page + tile title
      tagline     one-line promise (hero subhead / tile body)
      summary     hero paragraph (2–3 sentences)
-     heroMetric  { value, label } — the headline number
      demo        DemoMount key | null
      how         [{ n, title, body }]  — "How it works"
      capabilities[{ title, body }]      — "What you get"
      industries  [industry labels]      — "Who it's for"
-     metrics     [{ value, label }]     — outcomes band
      related     [slug]  — cross-links (resolved via bySlug)
      faqs        [{ q, a }] — focused subset for this page
    ============================================================ */
@@ -40,7 +38,6 @@ export const SERVICES = [
     tagline: "Autonomous agents that run real workflows end to end.",
     summary:
       "We build AI agents that don't just answer questions — they do the work. They qualify leads, reply to customers, update your systems, and escalate the edge cases to a human with full context, around the clock, without adding headcount.",
-    heroMetric: { value: "24/7", label: "Runs unattended, every day" },
     demo: "inbox",
     how: [
       { n: "01", title: "Scope the job", body: "We pick one workflow an agent can own end to end — and the number that proves it's working." },
@@ -55,11 +52,6 @@ export const SERVICES = [
       { title: "Fully observable", body: "Every action is logged and replayable, so you can audit exactly what it did and why." },
     ],
     industries: ["Real estate & brokerage", "Clinics & aesthetics", "Professional services", "E-commerce & retail"],
-    metrics: [
-      { value: "1.2 sec", label: "First response time" },
-      { value: "70%+", label: "Inbound handled without a human" },
-      { value: "0", label: "Leads left waiting overnight" },
-    ],
     related: ["inbox-agent", "scout", "desk"],
     faqs: [
       { q: "Will the agent act on its own, or just suggest?", a: "It acts. Within the guardrails we agree, the agent completes the task — replying, booking, updating your CRM — and only routes to a person when a decision genuinely needs human judgement, with full context attached." },
@@ -75,7 +67,6 @@ export const SERVICES = [
     tagline: "Connect the tools you already use and delete the busywork between them.",
     summary:
       "Most teams lose hours every week to copy-paste, re-keying, and chasing updates between systems that don't talk to each other. We connect those systems and automate the hand-offs, so the work flows on its own and your people stop being the integration layer.",
-    heroMetric: { value: "Hours", label: "Back every week, per team" },
     demo: null,
     how: [
       { n: "01", title: "Map the flow", body: "We trace a process step by step and mark every manual hand-off, re-key, and wait state." },
@@ -90,11 +81,6 @@ export const SERVICES = [
       { title: "Resilient by default", body: "Retries, alerts, and a human fallback for anything that needs eyes — no silent failures." },
     ],
     industries: ["Logistics & trading", "Professional services", "Financial & insurance", "E-commerce & retail"],
-    metrics: [
-      { value: "8–12 hrs", label: "Saved per person, per week" },
-      { value: "90%+", label: "Fewer manual re-keys" },
-      { value: "1", label: "Source of truth, not five" },
-    ],
     related: ["pipeline", "parser", "pulse"],
     faqs: [
       { q: "What if our tools don't have a clean API?", a: "We can usually still automate it. If a system has an API, a webhook, or even a scheduled export, we can connect it — and where nothing exists, we design a reliable workaround rather than forcing you onto new software." },
@@ -110,7 +96,6 @@ export const SERVICES = [
     tagline: "WhatsApp, web, and voice assistants that reply instantly and hand off cleanly.",
     summary:
       "Your customers expect an answer now, not in business hours. We build conversational assistants that reply in seconds across WhatsApp, web chat, and voice — holding context across the whole conversation and handing off to your team, with the full thread, the moment it matters.",
-    heroMetric: { value: "1.2 sec", label: "Average first reply" },
     demo: "inbox",
     how: [
       { n: "01", title: "Learn your answers", body: "We ground the assistant in your real FAQs, policies, pricing logic, and tone of voice." },
@@ -125,11 +110,6 @@ export const SERVICES = [
       { title: "Grounded, not guessing", body: "Answers come from your approved content, with clear fallbacks when it doesn't know." },
     ],
     industries: ["Clinics & aesthetics", "Real estate & brokerage", "E-commerce & retail", "Professional services"],
-    metrics: [
-      { value: "45 min → 1.2 sec", label: "Response time" },
-      { value: "24/7", label: "Coverage, after hours included" },
-      { value: "40%", label: "Faster resolution" },
-    ],
     related: ["inbox-agent", "desk", "ai-agents"],
     faqs: [
       { q: "Will it sound like a robot?", a: "No. We configure tone and phrasing to match your brand, and the assistant is grounded in your real answers. Customers get fast, on-brand replies — and a clean hand-off to a person whenever the conversation calls for one." },
@@ -145,7 +125,6 @@ export const SERVICES = [
     tagline: "Read contracts, invoices, and forms automatically — extract, validate, route.",
     summary:
       "Paperwork is where hours and accuracy quietly leak. We deploy systems that read contracts, invoices, and forms the moment they arrive, pull out the data that matters, validate it against your rules, and push it into the right system — flagging only what genuinely needs a human eye.",
-    heroMetric: { value: "3 hrs → 45 sec", label: "Per document audit" },
     demo: "parser",
     how: [
       { n: "01", title: "Define what matters", body: "We agree the fields, terms, and red flags worth extracting from each document type." },
@@ -160,11 +139,6 @@ export const SERVICES = [
       { title: "Human-in-the-loop", body: "Ambiguous cases are escalated with the exact field highlighted, not the whole pile." },
     ],
     industries: ["Logistics & trading", "Financial & insurance", "Professional services", "Real estate & brokerage"],
-    metrics: [
-      { value: "45 sec", label: "Per contract, end to end" },
-      { value: "99%+", label: "Field-level accuracy on key terms" },
-      { value: "100%", label: "Documents touched, none skipped" },
-    ],
     related: ["parser", "workflow-automation", "pipeline"],
     faqs: [
       { q: "What document types can it handle?", a: "Contracts, invoices, purchase orders, forms, manifests, and KYC documents are typical. It reads scans, PDFs, and photos — not just clean digital files — and we tune it to your specific layouts during setup." },
@@ -180,7 +154,6 @@ export const SERVICES = [
     tagline: "Capture, enrich, and route every lead the moment it lands — and keep the data clean.",
     summary:
       "Leads go cold in the gap between arriving and being worked. We close that gap: every inbound lead is captured, enriched, scored, and routed into your CRM the instant it lands, with the data kept clean as you scale — so your team works ready buyers instead of triaging a backlog.",
-    heroMetric: { value: "0", label: "Leads dropped or duplicated" },
     demo: "leaddb",
     how: [
       { n: "01", title: "Catch every source", body: "Web forms, WhatsApp, ads, and inbox — every inbound channel feeds one pipeline." },
@@ -195,11 +168,6 @@ export const SERVICES = [
       { title: "Self-cleaning CRM", body: "Duplicates merged and bad data caught continuously, not in a quarterly clean-up." },
     ],
     industries: ["Real estate & brokerage", "Professional services", "Financial & insurance", "E-commerce & retail"],
-    metrics: [
-      { value: "3.2×", label: "Faster lead response" },
-      { value: "100%", label: "Leads captured and routed" },
-      { value: "0", label: "Duplicate records created" },
-    ],
     related: ["pipeline", "scout", "ai-agents"],
     faqs: [
       { q: "Which CRMs do you support?", a: "HubSpot, Salesforce, Zoho, and most major CRMs. We build on top of the CRM you already use rather than asking you to migrate — capture, enrichment, and routing all feed into your existing setup." },
@@ -215,7 +183,6 @@ export const SERVICES = [
     tagline: "Bespoke models and secure integrations wired to fit your operations, not the reverse.",
     summary:
       "When off-the-shelf doesn't fit, we build what does. Custom models tuned to your data and secure integrations wired deep into your stack — designed around how your business actually runs, with security, access, and data residency agreed in writing before a line is built.",
-    heroMetric: { value: "Built to fit", label: "Your stack, your rules" },
     demo: null,
     how: [
       { n: "01", title: "Understand the constraint", body: "We map the data, the systems, and the security and residency requirements you operate under." },
@@ -230,11 +197,6 @@ export const SERVICES = [
       { title: "Never trains on you", body: "Your business data is never used to train shared models. Full stop." },
     ],
     industries: ["Financial & insurance", "Logistics & trading", "Professional services", "Clinics & aesthetics"],
-    metrics: [
-      { value: "1:1", label: "Built around your workflow" },
-      { value: "Least-access", label: "Security posture by default" },
-      { value: "In writing", label: "Data terms, before any build" },
-    ],
     related: ["pulse", "parser", "workflow-automation"],
     faqs: [
       { q: "Is our business data safe?", a: "Yes. We design integrations on a least-access basis, keep prompts and models scoped to the task, and never use your business data to train shared models. Access, retention, and residency are agreed in writing before anything is built." },
@@ -253,7 +215,6 @@ export const SOLUTIONS = [
     tagline: "Replies to every inbound lead in seconds — and books the meeting before a competitor does.",
     summary:
       "Inbox Agent answers every message on WhatsApp and web the instant it arrives, day or night. It qualifies the lead, answers the questions, and books the consultation on your calendar — so the first reply is always yours, and no enquiry ever goes cold after hours.",
-    heroMetric: { value: "45 min → 1.2 sec", label: "Response time" },
     demo: "inbox",
     how: [
       { n: "01", title: "Message lands", body: "A lead messages on WhatsApp or web chat — at 2pm or 2am, it makes no difference." },
@@ -268,11 +229,6 @@ export const SOLUTIONS = [
       { title: "Escalates the hot ones", body: "High-intent leads are flagged to your team instantly, with full context." },
     ],
     industries: ["Real estate & brokerage", "Clinics & aesthetics", "E-commerce & retail", "Professional services"],
-    metrics: [
-      { value: "1.2 sec", label: "Average first reply" },
-      { value: "24/7", label: "After-hours coverage" },
-      { value: "3.2×", label: "More leads reached first" },
-    ],
     related: ["conversational-ai", "scout", "desk"],
     faqs: [
       { q: "Does it work on WhatsApp?", a: "Yes — WhatsApp Business and web chat are the primary channels, running through the same brain so context follows the lead. It replies instantly on both, qualifies, and books the meeting before the lead cools." },
@@ -288,7 +244,6 @@ export const SOLUTIONS = [
     tagline: "Captures, enriches, and routes every lead straight into your CRM — no manual entry.",
     summary:
       "Pipeline makes sure no lead sits in an inbox overnight. It captures inbound from every channel, enriches and de-duplicates it, scores it, and routes it to the right owner in your CRM in seconds — keeping the data clean as you scale so your reps work, not re-key.",
-    heroMetric: { value: "0", label: "Leads dropped overnight" },
     demo: "leaddb",
     how: [
       { n: "01", title: "Capture everywhere", body: "Web forms, WhatsApp, ads, and inbox all feed into one Pipeline, automatically." },
@@ -303,11 +258,6 @@ export const SOLUTIONS = [
       { title: "Always clean", body: "Duplicates merged continuously, not cleaned up once a quarter." },
     ],
     industries: ["Real estate & brokerage", "Professional services", "Financial & insurance", "E-commerce & retail"],
-    metrics: [
-      { value: "3.2×", label: "Faster lead response" },
-      { value: "100%", label: "Captured and routed" },
-      { value: "0", label: "Duplicate records" },
-    ],
     related: ["sales-crm-automation", "scout", "parser"],
     faqs: [
       { q: "Will it fit our existing CRM?", a: "Yes. Pipeline builds on top of HubSpot, Salesforce, Zoho, and most major CRMs — capture, enrichment, scoring, and routing all feed into the setup you already use, with no migration required." },
@@ -323,7 +273,6 @@ export const SOLUTIONS = [
     tagline: "Reads contracts, invoices, and forms — then pushes validated data into your systems.",
     summary:
       "Drop in a contract, invoice, or form and Parser does the rest: it scans the document, extracts the key terms, validates them against your rules, and pushes clean data into your systems — flagging only what genuinely needs a human. Hours of careful reading become seconds.",
-    heroMetric: { value: "3 hrs → 45 sec", label: "Contract audit" },
     demo: "parser",
     how: [
       { n: "01", title: "Document arrives", body: "A contract, invoice, or form comes in — as a scan, PDF, or photo." },
@@ -338,11 +287,6 @@ export const SOLUTIONS = [
       { title: "Flags the exceptions", body: "Only ambiguous cases reach a human, with the exact field highlighted." },
     ],
     industries: ["Logistics & trading", "Financial & insurance", "Professional services", "Real estate & brokerage"],
-    metrics: [
-      { value: "45 sec", label: "Per document" },
-      { value: "99%+", label: "Accuracy on key fields" },
-      { value: "100%", label: "Documents read, none skipped" },
-    ],
     related: ["document-intelligence", "workflow-automation", "pipeline"],
     faqs: [
       { q: "Can it read scanned or photographed documents?", a: "Yes. Parser handles scans, PDFs, and photos, not just clean digital files. We tune it to your specific document layouts during setup so accuracy stays high on the formats you actually receive." },
@@ -358,7 +302,6 @@ export const SOLUTIONS = [
     tagline: "Resolves routine and complex support across every channel — and escalates the rest with context.",
     summary:
       "Desk handles your support load across WhatsApp, web, and email — resolving the routine questions outright and working through the complex ones, then escalating whatever needs a human with the full history attached. Your team stops triaging and starts handling only what truly needs them.",
-    heroMetric: { value: "40%", label: "Faster resolution" },
     demo: null,
     how: [
       { n: "01", title: "Request comes in", body: "A customer reaches out on any channel — WhatsApp, web chat, or email." },
@@ -373,11 +316,6 @@ export const SOLUTIONS = [
       { title: "Learns from tickets", body: "Real resolutions feed back in, widening what it can handle over time." },
     ],
     industries: ["E-commerce & retail", "Clinics & aesthetics", "Financial & insurance", "Professional services"],
-    metrics: [
-      { value: "40%", label: "Faster average resolution" },
-      { value: "24/7", label: "Coverage on every channel" },
-      { value: "60%+", label: "Tickets resolved without a human" },
-    ],
     related: ["conversational-ai", "inbox-agent", "ai-agents"],
     faqs: [
       { q: "Does it replace our support team?", a: "No — it removes the repetitive load so your team focuses on the cases that need judgement. Desk resolves routine tickets and progresses complex ones, then hands off to a person with full context when human help is required." },
@@ -393,7 +331,6 @@ export const SOLUTIONS = [
     tagline: "Turns scattered operational data into one live view your team actually uses.",
     summary:
       "Pulse pulls your operational data out of the silos it's trapped in and into a single live view — the numbers that actually drive decisions, updated in real time. No more stitching together five exports to answer one question; the picture is always current and in one place.",
-    heroMetric: { value: "Real-time", label: "One live operational view" },
     demo: null,
     how: [
       { n: "01", title: "Connect the sources", body: "We wire Pulse into your CRM, ops tools, sheets, and databases." },
@@ -408,11 +345,6 @@ export const SOLUTIONS = [
       { title: "Alerts, not surprises", body: "Thresholds flag issues early, so problems surface before they escalate." },
     ],
     industries: ["Logistics & trading", "Financial & insurance", "E-commerce & retail", "Professional services"],
-    metrics: [
-      { value: "1", label: "Live view, not five exports" },
-      { value: "Real-time", label: "Always-current numbers" },
-      { value: "Early", label: "Alerts before problems escalate" },
-    ],
     related: ["custom-models-integrations", "pipeline", "workflow-automation"],
     faqs: [
       { q: "Where does Pulse get its data?", a: "From the systems you already run — CRM, operational tools, spreadsheets, and databases. We connect to them on a least-access basis and unify the data into one live view, without asking you to move anything." },
@@ -428,7 +360,6 @@ export const SOLUTIONS = [
     tagline: "Scores and qualifies inbound automatically, so your team only works ready buyers.",
     summary:
       "Scout scores and tags every inbound lead the moment it lands, so your team opens its day to a database of buyers who are genuinely ready — not a backlog to triage. The qualifying happens automatically, in the background, against the criteria that actually predict a deal.",
-    heroMetric: { value: "3.2×", label: "Faster qualification" },
     demo: "leaddb",
     how: [
       { n: "01", title: "Lead arrives", body: "Inbound from any channel lands and is picked up by Scout instantly." },
@@ -443,11 +374,6 @@ export const SOLUTIONS = [
       { title: "Feeds your CRM", body: "Scores and tags land on the record, ready for routing and follow-up." },
     ],
     industries: ["Real estate & brokerage", "Professional services", "Financial & insurance", "E-commerce & retail"],
-    metrics: [
-      { value: "3.2×", label: "Faster qualification" },
-      { value: "100%", label: "Leads scored on arrival" },
-      { value: "0", label: "Manual triage required" },
-    ],
     related: ["sales-crm-automation", "inbox-agent", "pipeline"],
     faqs: [
       { q: "How does Scout know which leads are good?", a: "We build the scoring on the criteria that actually predict closed deals for your business — drawn from your history and refined in production. It's tuned to your definition of a ready buyer, not a generic template." },
@@ -465,8 +391,7 @@ export const INDUSTRIES = [
     name: "Real estate & brokerage",
     tagline: "Be the first to reply on every property enquiry — automatically.",
     summary:
-      "In Dubai real estate, the broker who replies first usually wins the viewing. We deploy AI that responds to every portal lead, WhatsApp message, and web enquiry in seconds, qualifies the buyer, and books the viewing — so no high-intent enquiry sits unanswered while a competitor responds.",
-    heroMetric: { value: "1.2 sec", label: "First reply on every enquiry" },
+      "In UAE real estate, the broker who replies first usually wins the viewing. We deploy AI that responds to every portal lead, WhatsApp message, and web enquiry in seconds, qualifies the buyer, and books the viewing — so no high-intent enquiry sits unanswered while a competitor responds.",
     demo: "inbox",
     how: [
       { n: "01", title: "Lead lands", body: "An enquiry arrives from a portal, WhatsApp, or your website — day or night." },
@@ -481,11 +406,6 @@ export const INDUSTRIES = [
       { title: "Clean CRM, always", body: "Every lead enriched and routed into your CRM with no manual entry." },
     ],
     industries: ["Brokerages", "Property developers", "Property management", "Holiday-home operators"],
-    metrics: [
-      { value: "1.2 sec", label: "First response time" },
-      { value: "3.2×", label: "More leads reached first" },
-      { value: "0", label: "Enquiries lost after hours" },
-    ],
     related: ["inbox-agent", "scout", "sales-crm-automation"],
     faqs: [
       { q: "Does it work with Bayut and Property Finder leads?", a: "Yes. Leads from Bayut, Property Finder, your website, and WhatsApp all feed into one flow. Each is answered in seconds, qualified, and routed to the right agent — so portal spend doesn't go cold in an inbox." },
@@ -501,7 +421,6 @@ export const INDUSTRIES = [
     tagline: "Every patient enquiry answered and booked — even after the clinic closes.",
     summary:
       "Aesthetic and medical clinics lose bookings to slow replies and after-hours silence. We deploy AI that responds instantly on WhatsApp and web, answers treatment questions on-brand, and books consultations around the clock — so a 9pm enquiry becomes tomorrow's appointment instead of a missed call.",
-    heroMetric: { value: "24/7", label: "Booking, after hours included" },
     demo: "inbox",
     how: [
       { n: "01", title: "Enquiry arrives", body: "A patient messages about a treatment on WhatsApp or your website." },
@@ -516,11 +435,6 @@ export const INDUSTRIES = [
       { title: "Discreet and compliant", body: "Patient data handled on a least-access basis, scoped to the task." },
     ],
     industries: ["Aesthetic clinics", "Dental & medical", "Wellness & spa", "Dermatology"],
-    metrics: [
-      { value: "24/7", label: "After-hours coverage" },
-      { value: "45 min → 1.2 sec", label: "Response time" },
-      { value: "40%", label: "Faster enquiry handling" },
-    ],
     related: ["inbox-agent", "conversational-ai", "desk"],
     faqs: [
       { q: "Is patient information kept private?", a: "Yes. Integrations are built on a least-access basis, prompts and models are scoped to the task, and your data is never used to train shared models. Access and retention are agreed in writing before anything goes live." },
@@ -536,7 +450,6 @@ export const INDUSTRIES = [
     tagline: "Turn manifests, invoices, and paperwork into clean data — in seconds.",
     summary:
       "Trading and logistics run on high-volume paperwork that eats hours and breeds errors. We deploy AI that reads manifests, invoices, and customs documents the moment they arrive, extracts and validates the data, and pushes it into your systems — flagging only the genuine exceptions for a human.",
-    heroMetric: { value: "3 hrs → 45 sec", label: "Per document, end to end" },
     demo: "parser",
     how: [
       { n: "01", title: "Document arrives", body: "An invoice, manifest, or customs form comes in as a scan, PDF, or photo." },
@@ -551,11 +464,6 @@ export const INDUSTRIES = [
       { title: "Scales with volume", body: "Peak-season paperwork handled without adding back-office headcount." },
     ],
     industries: ["Freight & forwarding", "Import/export trading", "Distribution", "Customs brokerage"],
-    metrics: [
-      { value: "45 sec", label: "Per document" },
-      { value: "99%+", label: "Accuracy on key fields" },
-      { value: "100%", label: "Documents processed" },
-    ],
     related: ["parser", "document-intelligence", "workflow-automation"],
     faqs: [
       { q: "What documents can it process?", a: "Commercial invoices, packing lists, manifests, bills of lading, customs forms, and purchase orders are typical. It handles scans and photos, and we tune it to your specific layouts during setup." },
@@ -571,7 +479,6 @@ export const INDUSTRIES = [
     tagline: "Free your senior people from intake, admin, and chasing.",
     summary:
       "In professional services, your most expensive people lose hours to intake forms, proposals, and back-office follow-up. We deploy AI that captures and qualifies new enquiries, drafts routine documents, and automates the admin — so partners and consultants spend their time on billable work, not paperwork.",
-    heroMetric: { value: "8–12 hrs", label: "Saved per person, weekly" },
     demo: "leaddb",
     how: [
       { n: "01", title: "Enquiry captured", body: "A new client enquiry is captured and enriched the moment it lands." },
@@ -586,11 +493,6 @@ export const INDUSTRIES = [
       { title: "Senior time protected", body: "Hours returned to the people whose time costs the most." },
     ],
     industries: ["Consultancies", "Law & legal", "Accounting & advisory", "Agencies"],
-    metrics: [
-      { value: "8–12 hrs", label: "Saved per person weekly" },
-      { value: "3.2×", label: "Faster enquiry handling" },
-      { value: "90%+", label: "Less manual admin" },
-    ],
     related: ["scout", "workflow-automation", "ai-agents"],
     faqs: [
       { q: "Will it fit our existing tools?", a: "Yes. We build on top of the CRM, document, and scheduling tools you already use rather than asking you to switch — capturing, qualifying, and automating around your current stack." },
@@ -606,7 +508,6 @@ export const INDUSTRIES = [
     tagline: "Conversational sales and support that scale through every peak.",
     summary:
       "Retail demand spikes; headcount can't. We deploy AI that handles sales questions and support across WhatsApp, web, and social — recommending products, answering instantly, and resolving the routine tickets — so you convert more and support faster through peak season without adding staff.",
-    heroMetric: { value: "40%", label: "Faster support resolution" },
     demo: null,
     how: [
       { n: "01", title: "Customer reaches out", body: "A shopper asks a question on WhatsApp, web chat, or social." },
@@ -621,11 +522,6 @@ export const INDUSTRIES = [
       { title: "Every channel, one brain", body: "WhatsApp, web, and social answered consistently." },
     ],
     industries: ["Online retail", "D2C brands", "Marketplaces", "Omnichannel retail"],
-    metrics: [
-      { value: "40%", label: "Faster resolution" },
-      { value: "24/7", label: "Sales & support coverage" },
-      { value: "60%+", label: "Tickets auto-resolved" },
-    ],
     related: ["desk", "conversational-ai", "inbox-agent"],
     faqs: [
       { q: "Can it handle order and returns questions?", a: "Yes. Routine order status, returns, and FAQ questions are resolved automatically from your systems and policies, with anything complex escalated to your team with the full history attached." },
@@ -641,7 +537,6 @@ export const INDUSTRIES = [
     tagline: "Process claims, KYC, and documents accurately — with humans in the loop.",
     summary:
       "Financial and insurance operations are document-heavy and accuracy-critical. We deploy AI that reads claims, KYC packs, and forms, extracts and validates the data against your rules, and routes it through your process — keeping a human in the loop for every decision that genuinely needs one.",
-    heroMetric: { value: "45 sec", label: "Per document, validated" },
     demo: "parser",
     how: [
       { n: "01", title: "Documents arrive", body: "Claims, KYC packs, or applications come in across channels." },
@@ -656,11 +551,6 @@ export const INDUSTRIES = [
       { title: "Secure by design", body: "Least-access integrations and data terms agreed in writing up front." },
     ],
     industries: ["Insurance", "Banking & finance", "Brokerage", "Wealth & advisory"],
-    metrics: [
-      { value: "45 sec", label: "Per document" },
-      { value: "99%+", label: "Field-level accuracy" },
-      { value: "100%", label: "Decisions human-reviewed" },
-    ],
     related: ["parser", "document-intelligence", "custom-models-integrations"],
     faqs: [
       { q: "Is our data kept secure?", a: "Yes. Integrations are least-access by design, models are scoped to the task, your data is never used to train shared models, and access, retention, and residency are agreed in writing before anything is built." },

@@ -15,18 +15,18 @@ export async function generateMetadata({ params }) {
   const item = getItem(slug);
   if (!item || item.kind !== "industry") return {};
   return {
-    title: `AI for ${item.name}`, // layout template → "AI for … — Solvera AI"
+    title: `AI for ${item.name}`, // layout template → "AI for … — Solvera"
     description: item.summary,
     alternates: { canonical: `/industries/${item.slug}` },
     openGraph: {
-      title: `AI for ${item.name} — Solvera AI`,
+      title: `AI for ${item.name} — Solvera`,
       description: item.summary,
       url: `/industries/${item.slug}`,
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `AI for ${item.name} — Solvera AI`,
+      title: `AI for ${item.name} — Solvera`,
       description: item.summary,
     },
   };

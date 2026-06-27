@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Solvera — form detection</title>
+  </head>
+  <body>
+    <!--
+      Hidden form so Netlify provisions the "contact" form at deploy time.
+      Netlify scans static HTML for forms; because the real form lives inside a
+      client-rendered React component (and the site uses the Next.js runtime,
+      which would otherwise swallow the POST), the interactive form in
+      app/components/ContactSection.jsx submits here via fetch:
+        POST /__forms.html  (application/x-www-form-urlencoded, form-name=contact)
+      Keep the field names below in sync with that component.
+    -->
+    <form name="contact" data-netlify="true" netlify-honeypot="website" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <input type="text" name="interest" />
+      <textarea name="message"></textarea>
+      <input type="text" name="website" />
+    </form>
+  </body>
+</html>

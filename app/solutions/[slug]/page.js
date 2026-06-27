@@ -15,18 +15,18 @@ export async function generateMetadata({ params }) {
   const item = getItem(slug);
   if (!item || item.kind !== "solution") return {};
   return {
-    title: item.name, // layout template → "Name — Solvera AI"
+    title: item.name, // layout template → "Name — Solvera"
     description: item.summary,
     alternates: { canonical: `/solutions/${item.slug}` },
     openGraph: {
-      title: `${item.name} — Solvera AI`,
+      title: `${item.name} — Solvera`,
       description: item.summary,
       url: `/solutions/${item.slug}`,
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${item.name} — Solvera AI`,
+      title: `${item.name} — Solvera`,
       description: item.summary,
     },
   };

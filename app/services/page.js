@@ -7,10 +7,10 @@ import { SITE } from "../lib/site";
 export const metadata = {
   title: "Services",
   description:
-    "Solvera AI's services: AI agents, workflow automation, conversational AI, document intelligence, sales & CRM automation, and custom models & integrations — each scoped around a measurable business outcome and shipped to production in weeks.",
+    "Solvera's services: AI agents, workflow automation, conversational AI, document intelligence, sales & CRM automation, and custom models & integrations — each scoped around a measurable business outcome and shipped to production in weeks.",
   alternates: { canonical: "/services" },
   openGraph: {
-    title: "Services — Solvera AI",
+    title: "Services — Solvera",
     description:
       "Six AI capabilities, each scoped around a measurable outcome and shipped to production in weeks.",
     url: "/services",
@@ -27,7 +27,7 @@ function jsonLd() {
         "@type": "CollectionPage",
         "@id": `${url}#webpage`,
         url,
-        name: "Services — Solvera AI",
+        name: "Services — Solvera",
         isPartOf: { "@id": `${SITE.url}/#website` },
         about: { "@id": `${SITE.url}/#organization` },
         description: metadata.description,
@@ -70,17 +70,10 @@ export default function ServicesIndex() {
           accentWords={["outcomes."]}
           intro="We design and deploy practical AI — not demos. Each capability is scoped around a number worth moving, then shipped to production in weeks and operated as your volumes grow."
           items={SERVICES}
-          bandHeadline="Scoped to a metric. Shipped to production. Operated for the long run."
-          stats={[
-            { value: "6 wks", label: "To first deployment" },
-            { value: "10M+", label: "Requests resolved monthly" },
-            { value: "99%", label: "Uptime reliability" },
-            { value: "3.2×", label: "Faster lead response" },
-          ]}
           counterpart={{
             href: "/solutions",
             label: "Browse solutions",
-            blurb: "Prefer a pre-built system? See the ones we've shipped before.",
+            blurb: "Prefer a configurable system? See the patterns we deploy.",
           }}
         />
       </main>

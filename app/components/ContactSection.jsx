@@ -35,7 +35,7 @@ export default function ContactSection() {
     website: "", // honeypot — real users never fill this
   });
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | sending | sent
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
   const set = (key) => (e) =>
     setForm((f) => ({ ...f, [key]: e.target.value }));
@@ -49,6 +49,12 @@ export default function ContactSection() {
     return next;
   };
 
+  // Netlify Forms expects URL-encoded key/value pairs.
+  const encode = (data) =>
+    Object.keys(data)
+      .map((k) => encodeURIComponent(k) + "=" + encodeURIComponent(data[k]))
+      .join("&");
+
   const submit = async (e) => {
     e.preventDefault();
     if (form.website) return; // bot caught by honeypot
@@ -61,9 +67,19 @@ export default function ContactSection() {
       return;
     }
     setStatus("sending");
-    // TODO: POST `form` to your CRM / email service (e.g. /api/contact)
-    await new Promise((r) => setTimeout(r, 900));
-    setStatus("sent");
+    try {
+      // Post to the static Netlify detection file (public/__forms.html) so the
+      // submission reaches Netlify Forms rather than the Next.js server runtime.
+      const res = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...form }),
+      });
+      if (!res.ok) throw new Error(`Submission failed (${res.status})`);
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -137,7 +153,7 @@ export default function ContactSection() {
               </a>
               <p className="flex items-center gap-3 text-[var(--on-ink-1)] text-sm m-0">
                 <MapPin className="w-4 h-4 text-[var(--accent-on-dark)]" strokeWidth={2} />
-                {SITE.address.locality}, {SITE.address.countryName}
+                {SITE.address.countryName}
               </p>
               <p className="flex items-center gap-3 text-[var(--on-ink-1)] text-sm m-0">
                 <CalendarCheck className="w-4 h-4 text-[var(--accent-on-dark)]" strokeWidth={2} />
@@ -312,6 +328,23 @@ export default function ContactSection() {
                         />
                       </div>
                     </div>
+
+                    {status === "error" && (
+                      <p
+                        role="alert"
+                        className="mt-6 text-[#e08a7a] text-sm leading-relaxed m-0"
+                      >
+                        Something went wrong sending your message. Please try
+                        again, or email us directly at{" "}
+                        <a
+                          href={`mailto:${SITE.email}`}
+                          className="underline text-[var(--accent-on-dark)]"
+                        >
+                          {SITE.email}
+                        </a>
+                        .
+                      </p>
+                    )}
 
                     <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
                       <button

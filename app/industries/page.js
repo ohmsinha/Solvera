@@ -7,12 +7,12 @@ import { SITE } from "../lib/site";
 export const metadata = {
   title: "Industries",
   description:
-    "AI systems for the sectors that drive Dubai and the UAE: real estate, clinics and aesthetics, logistics and trading, professional services, e-commerce and retail, and financial and insurance — built where slow response and manual paperwork cost the most.",
+    "AI systems for operations-heavy sectors across the UAE: real estate, clinics and aesthetics, logistics and trading, professional services, e-commerce and retail, and financial and insurance — built where slow response and manual paperwork cost the most.",
   alternates: { canonical: "/industries" },
   openGraph: {
-    title: "Industries — Solvera AI",
+    title: "Industries — Solvera",
     description:
-      "AI systems built for the operations-heavy sectors of Dubai and the UAE.",
+      "AI systems built for operations-heavy sectors across the UAE.",
     url: "/industries",
     type: "website",
   },
@@ -27,7 +27,7 @@ function jsonLd() {
         "@type": "CollectionPage",
         "@id": `${url}#webpage`,
         url,
-        name: "Industries — Solvera AI",
+        name: "Industries — Solvera",
         isPartOf: { "@id": `${SITE.url}/#website` },
         about: { "@id": `${SITE.url}/#organization` },
         description: metadata.description,
@@ -66,17 +66,10 @@ export default function IndustriesIndex() {
         <CollectionView
           kind="industry"
           eyebrow="Industries"
-          title="Built for how Dubai operates."
-          accentWords={["operates."]}
-          intro="We work with operators in the sectors where manual work and slow response cost the most — tuning production-tested AI to how each one actually runs, across Dubai and the wider UAE."
+          title="Built for how UAE businesses operate."
+          accentWords={["operate."]}
+          intro="We work with operators in the sectors where manual work and slow response cost the most — configuring proven AI patterns to how each one actually runs, across the UAE."
           items={INDUSTRIES}
-          bandHeadline="Sector-specific systems, scoped to the metric that matters in your business."
-          stats={[
-            { value: "1.2 sec", label: "First response time" },
-            { value: "45 sec", label: "Per document, validated" },
-            { value: "24/7", label: "After-hours coverage" },
-            { value: "6 wks", label: "To first deployment" },
-          ]}
           counterpart={{
             href: "/solutions",
             label: "Browse solutions",

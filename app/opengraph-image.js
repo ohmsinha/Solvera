@@ -44,7 +44,7 @@ export default function OgImage() {
             S
           </div>
           <div style={{ fontSize: 30, fontWeight: 600, color: "#16140f" }}>
-            Solvera AI
+            Solvera
           </div>
         </div>
 
@@ -68,7 +68,7 @@ export default function OgImage() {
           </div>
           <div style={{ fontSize: 28, color: "#55524a", maxWidth: 900 }}>
             Practical AI systems for modern teams — designed, deployed, and
-            operated from Dubai.
+            operated in the UAE.
           </div>
         </div>
 
@@ -85,7 +85,7 @@ export default function OgImage() {
           }}
         >
           <div>AI agents · Automation · Document intelligence</div>
-          <div>solvera.ai</div>
+          <div>solverame.com</div>
         </div>
       </div>
     ),

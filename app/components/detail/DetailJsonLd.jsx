@@ -31,10 +31,7 @@ export default function DetailJsonLd({ item }) {
     description: item.summary,
     url,
     provider: { "@id": orgId },
-    areaServed: [
-      { "@type": "City", name: "Dubai" },
-      { "@type": "Country", name: "United Arab Emirates" },
-    ],
+    areaServed: { "@type": "Country", name: "United Arab Emirates" },
     inLanguage: "en",
   };
   // Industry pages target an audience — useful signal for answer engines (GEO).

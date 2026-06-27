@@ -4,43 +4,42 @@
    and the contact section — keep visible copy and schema in sync
    (consistency between page text and structured data is what
    answer engines reward).
-   TODO: set NEXT_PUBLIC_SITE_URL (or edit the fallback) once the
-   production domain is live, and fill in the real contact details.
+   Primary domain: solverame.com (owned). If solvera.ae is secured
+   later, set NEXT_PUBLIC_SITE_URL and update the email below.
    ============================================================ */
 
 export const SITE = {
-  name: "Solvera AI",
-  legalName: "Solvera AI",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.solvera.ai",
+  name: "Solvera",
+  // Legal entity behind the Solvera trading brand (used as legalName in schema).
+  legalName: "AL BATRA MANAGEMENT CONSULTANTS",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://solverame.com",
 
-  // Licensed contracting entity behind the Solvera AI brand.
-  // Solvera AI is a trading brand; the entity on the trade license is the
+  // Licensed contracting entity behind the Solvera brand.
+  // Solvera is a trading brand; the entity on the trade license is the
   // party that contracts/invoices. Shown in the footer and on legal pages.
-  // TODO: confirm exact legal name as printed on the trade license + add
-  // the license number and issuing authority (DED/DET) before going live.
+  // UAE-licensed firm registered in Sharjah (SEDD) — not Dubai.
+  // TODO: add the trade license number once confirmed with SEDD.
   parent: {
-    name: "Al Batra Consultants",
-    website: "https://albatraconsultants.com",
-    licenseNo: "", // TODO: trade license number
-    authority: "Department of Economy & Tourism, Dubai",
-    locality: "Dubai",
+    name: "AL BATRA MANAGEMENT CONSULTANTS",
+    licenseNo: "", // TODO: trade license number (SEDD)
+    authority: "Sharjah Economic Development Department (SEDD)",
     country: "United Arab Emirates",
   },
   tagline: "Practical AI systems for modern teams",
   description:
-    "Solvera AI is an AI consultancy in Dubai that designs, deploys, and operates practical AI systems — agents, automations, and internal tools — that remove manual work and measurably improve operations.",
-  email: "hello@solvera.ai",
-  phone: "+971-0-000-0000", // TODO: real number
+    "Solvera is an AI automation consultancy in the UAE that designs, deploys, and operates practical AI systems — agents, automations, and internal tools — that remove manual work and measurably improve operations.",
+  email: "hello@solverame.com",
+  phone: "", // TODO: real number once a business line is live
   address: {
-    locality: "Dubai",
     country: "AE",
     countryName: "United Arab Emirates",
   },
-  geo: { latitude: 25.2048, longitude: 55.2708 },
+  // Social profiles not yet created — placeholders kept per owner request;
+  // real handles to be supplied later. TODO: replace with live URLs.
   social: {
-    linkedin: "https://www.linkedin.com/company/solvera-ai", // TODO: confirm handles
-    x: "https://x.com/solveraai",
-    instagram: "https://www.instagram.com/solvera.ai",
+    linkedin: "https://www.linkedin.com/company/solvera-ai", // TODO: real handle
+    x: "https://x.com/solveraai", // TODO: real handle
+    instagram: "https://www.instagram.com/solvera.ai", // TODO: real handle
   },
   services: [
     "AI agents",

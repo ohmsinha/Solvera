@@ -66,8 +66,8 @@ export default function IndustriesSection() {
             </Reveal>
             <h2 className="headline-serif text-[clamp(2rem,4.4vw,3.75rem)] text-[var(--ink-0)]">
               <RevealText
-                text="Built for how Dubai operates."
-                accentWords={["operates."]}
+                text="Built for how UAE businesses operate."
+                accentWords={["operate."]}
                 stagger={0.04}
               />
             </h2>

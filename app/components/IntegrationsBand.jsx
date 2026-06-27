@@ -87,7 +87,7 @@ function Node({ logo, y, side, index }) {
 
 function IntegrationNetwork() {
   return (
-    <svg viewBox="0 0 1000 420" className="w-full h-auto" role="img" aria-label="Solvera AI wired into your existing tools">
+    <svg viewBox="0 0 1000 420" className="w-full h-auto" role="img" aria-label="Solvera wired into your existing tools">
       <defs>
         <radialGradient id="hubGlow" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="var(--accent-on-dark)" stopOpacity="0.35" />

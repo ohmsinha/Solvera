@@ -110,12 +110,12 @@ export default function ShowcaseSection() {
         {/* Header */}
         <div className="mb-16 max-w-2xl">
           <Reveal>
-            <p className="eyebrow mb-4">See it in action</p>
+            <p className="eyebrow mb-4">How it works</p>
           </Reveal>
           <h2 className="headline-serif text-[clamp(2rem,4.4vw,3.75rem)] text-[var(--ink-0)]">
             <RevealText
-              text="Real systems, not slideware."
-              accentWords={["slideware."]}
+              text="How these systems work."
+              accentWords={["work."]}
               stagger={0.04}
             />
           </h2>

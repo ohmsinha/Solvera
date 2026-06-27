@@ -29,7 +29,7 @@ const plexMono = IBM_Plex_Mono({
 
 const TITLE = `${SITE.name} — ${SITE.tagline}`;
 const DESCRIPTION =
-  "AI consultancy in Dubai. We design, deploy, and operate practical AI systems — agents, automations, and internal tools — that remove manual work and measurably improve operations. First production deployment in 4–6 weeks.";
+  "AI automation consultancy in the UAE. We design, deploy, and operate practical AI systems — agents, automations, and internal tools — that remove manual work and measurably improve operations. First production deployment in 4–6 weeks.";
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
@@ -40,7 +40,7 @@ export const metadata = {
   description: DESCRIPTION,
   applicationName: SITE.name,
   keywords: [
-    "AI consultancy Dubai",
+    "AI automation consultancy UAE",
     "AI agency UAE",
     "AI agents",
     "workflow automation",
@@ -48,8 +48,8 @@ export const metadata = {
     "WhatsApp automation",
     "document intelligence",
     "CRM automation",
-    "AI consulting",
-    "business process automation Dubai",
+    "AI consulting UAE",
+    "business process automation UAE",
   ],
   category: "technology",
   creator: SITE.name,
@@ -81,12 +81,11 @@ export const metadata = {
       "max-video-preview": -1,
     },
   },
-  // Geo targeting (GEO) — legacy but still read by several engines
+  // Geo targeting (GEO) — legacy but still read by several engines.
+  // Country-level only; the firm is UAE-licensed (no single city claimed).
   other: {
-    "geo.region": "AE-DU",
-    "geo.placename": "Dubai",
-    "geo.position": `${SITE.geo.latitude};${SITE.geo.longitude}`,
-    ICBM: `${SITE.geo.latitude}, ${SITE.geo.longitude}`,
+    "geo.region": "AE",
+    "geo.placename": "United Arab Emirates",
   },
 };
 

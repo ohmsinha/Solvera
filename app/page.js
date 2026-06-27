@@ -7,8 +7,6 @@ import ShowcaseSection from "./components/ShowcaseSection";
 import ROICalculator from "./components/ROICalculator";
 import StickyProcessSection from "./components/StickyProcessSection";
 import IndustriesSection from "./components/IndustriesSection";
-import ResultsSection from "./components/ResultsSection";
-import TestimonialsSection from "./components/TestimonialsSection";
 import FAQSection from "./components/FAQSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
@@ -18,7 +16,7 @@ import { FAQS } from "./lib/faq";
 /* ============================================================
    JSON-LD structured data (SEO / AEO / GEO)
    ------------------------------------------------------------
-   One @graph with: ProfessionalService (the Dubai business),
+   One @graph with: ProfessionalService (the UAE business),
    WebSite, WebPage, and FAQPage (mirrors the visible FAQ
    accordion exactly — answer engines cross-check the two).
    ============================================================ */
@@ -38,18 +36,9 @@ function structuredData() {
         slogan: SITE.tagline,
         address: {
           "@type": "PostalAddress",
-          addressLocality: SITE.address.locality,
           addressCountry: SITE.address.country,
         },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: SITE.geo.latitude,
-          longitude: SITE.geo.longitude,
-        },
-        areaServed: [
-          { "@type": "City", name: "Dubai" },
-          { "@type": "Country", name: "United Arab Emirates" },
-        ],
+        areaServed: { "@type": "Country", name: "United Arab Emirates" },
         sameAs: Object.values(SITE.social),
         knowsAbout: [
           "artificial intelligence consulting",
@@ -116,8 +105,6 @@ export default function Home() {
         <ROICalculator />
         <StickyProcessSection />
         <IndustriesSection />
-        <ResultsSection />
-        <TestimonialsSection />
         <FAQSection />
         <ContactSection />
       </main>

@@ -8,18 +8,6 @@ import { RevealText, EASE } from "./Motion";
 const CYCLE_WORDS = ["measurable", "practical", "reliable", "shipped", "scalable"];
 const CYCLE_INTERVAL = 2200;
 
-/* Typographic wordmarks — distinct treatments read as real logos until
-   actual client logos replace them */
-const LOGOS = [
-  { name: "Northwind", cls: "font-semibold tracking-tight text-[15px]" },
-  { name: "CLOUDWATCH", cls: "font-[family-name:var(--font-mono)] text-[12.5px] tracking-[0.22em]" },
-  { name: "Quotient", cls: "font-[family-name:var(--font-serif)] italic text-[17px]" },
-  { name: "BOLTER", cls: "font-bold tracking-[0.08em] text-[14px]" },
-  { name: "Meridian", cls: "font-[family-name:var(--font-serif)] text-[16.5px] tracking-wide" },
-  { name: "ATLASLINE", cls: "font-medium tracking-[0.3em] text-[12px]" },
-  { name: "Verve & Co", cls: "font-[family-name:var(--font-serif)] italic text-[16px]" },
-];
-
 export default function HeroSection() {
   const containerRef = useRef(null);
   const [wordIndex, setWordIndex] = useState(0);
@@ -154,33 +142,9 @@ export default function HeroSection() {
               Book a consultation
               <span className="ml-1.5">↗</span>
             </SpotlightButton>
-            <SpotlightButton variant="secondary" href="#results">
-              See the results
+            <SpotlightButton variant="secondary" href="#showcase">
+              See how it works
             </SpotlightButton>
-          </motion.div>
-
-          {/* Logo bar — seamless marquee */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.3, ease: EASE }}
-            className="mt-16 w-full max-w-3xl"
-          >
-            <p className="text-center eyebrow text-[var(--ink-4)] mb-5 normal-case tracking-[0.14em]">
-              Trusted by operating teams
-            </p>
-            <div className="marquee-mask marquee-paused overflow-hidden">
-              <div className="animate-marquee flex w-max items-center gap-14 pr-14">
-                {[...LOGOS, ...LOGOS].map((brand, i) => (
-                  <span
-                    key={`${brand.name}-${i}`}
-                    className={`whitespace-nowrap text-[var(--ink-3)] ${brand.cls}`}
-                  >
-                    {brand.name}
-                  </span>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </motion.div>
 

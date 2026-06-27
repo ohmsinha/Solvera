@@ -46,8 +46,6 @@ export default function CollectionView({
   accentWords,    // words to italic-accent in headline
   intro,          // hero supporting paragraph
   items,          // catalog collection
-  stats,          // [{ value, label }] for the dark band
-  bandHeadline,   // headline for the dark band
   counterpart,    // { href, label, blurb } cross-link to the other collection
 }) {
   const crumb = CRUMB[kind] || "Services";
@@ -183,44 +181,13 @@ export default function CollectionView({
                   <p className="text-[var(--ink-2)] text-[15px] leading-relaxed mb-6 flex-1">
                     {it.tagline}
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-[var(--line-0)]">
-                    <span className="tnum text-[var(--accent-0)] text-[13px] font-semibold font-[family-name:var(--font-mono)]">
-                      {it.heroMetric.value}
-                    </span>
+                  <div className="flex items-center justify-end pt-4 border-t border-[var(--line-0)]">
                     <span className="flex items-center gap-1 text-[var(--ink-2)] text-sm font-medium group-hover:text-[var(--accent-0)] transition-colors">
                       Explore
                       <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" strokeWidth={2} />
                     </span>
                   </div>
                 </Link>
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
-
-      {/* ── Dark stats band (rhythm break + trust signal) ── */}
-      <section className="relative bg-[var(--ink-bg-0)] overflow-hidden px-6 sm:px-10 py-24 sm:py-28">
-        <div className="absolute inset-0 texture-dots-dark texture-fade opacity-60 pointer-events-none" aria-hidden="true" />
-        <div className="grain-layer opacity-[0.04]" aria-hidden="true" />
-        <div className="relative max-w-[1100px] mx-auto">
-          <div className="max-w-2xl mb-14">
-            <Reveal><p className="eyebrow text-[var(--accent-on-dark)] mb-4">By the numbers</p></Reveal>
-            <h2 className="headline-serif text-[clamp(1.8rem,3.6vw,3rem)] text-[var(--on-ink-0)]">
-              {bandHeadline}
-            </h2>
-          </div>
-          <Stagger className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--ink-line)] border border-[var(--ink-line)] rounded-xl overflow-hidden" stagger={0.08}>
-            {stats.map((s) => (
-              <StaggerItem key={s.label}>
-                <div className="h-full bg-[var(--ink-bg-1)] p-7 text-center">
-                  <p className="headline-serif text-4xl sm:text-5xl text-[var(--accent-on-dark)] tnum">
-                    {s.value}
-                  </p>
-                  <p className="text-[var(--on-ink-2)] text-[13px] mt-3 leading-snug">
-                    {s.label}
-                  </p>
-                </div>
               </StaggerItem>
             ))}
           </Stagger>

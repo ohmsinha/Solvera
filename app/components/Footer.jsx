@@ -20,8 +20,8 @@ const COLUMNS = [
   {
     heading: "Company",
     links: [
-      { label: "Results", href: "/#results" },
-      { label: "Client voices", href: "/#testimonials" },
+      { label: "About", href: "/about" },
+      { label: "What we've built", href: "/about#work" },
       { label: "FAQ", href: "/#faq" },
       { label: "Book a consultation", href: "/#contact" },
     ],
@@ -86,18 +86,18 @@ export default function Footer() {
             </div>
             {/* Entity-defining sentence — written to be quotable by AI search */}
             <p className="text-[var(--on-ink-2)] text-sm max-w-sm leading-relaxed">
-              {SITE.name} is an AI consultancy in Dubai, United Arab Emirates.
-              We design, deploy, and operate practical AI systems — agents,
-              automations, and internal tools — that remove manual work and
-              measurably improve operations.
+              {SITE.name} is an AI automation consultancy in the UAE. We design,
+              deploy, and operate practical AI systems — agents, automations, and
+              internal tools — that remove manual work and measurably improve
+              operations.
             </p>
 
             {/* Social */}
             <div className="flex items-center gap-3 mt-6">
               {[
-                { Icon: LinkedinIcon, href: SITE.social.linkedin, label: "Solvera AI on LinkedIn" },
-                { Icon: XIcon, href: SITE.social.x, label: "Solvera AI on X" },
-                { Icon: InstagramIcon, href: SITE.social.instagram, label: "Solvera AI on Instagram" },
+                { Icon: LinkedinIcon, href: SITE.social.linkedin, label: "Solvera on LinkedIn" },
+                { Icon: XIcon, href: SITE.social.x, label: "Solvera on X" },
+                { Icon: InstagramIcon, href: SITE.social.instagram, label: "Solvera on Instagram" },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -149,7 +149,7 @@ export default function Footer() {
                 {SITE.email}
               </a>
               <p className="text-[var(--on-ink-2)] text-[13px] m-0">
-                {SITE.address.locality}, {SITE.address.countryName}
+                {SITE.address.countryName}
               </p>
             </address>
             <a
@@ -169,15 +169,8 @@ export default function Footer() {
         {/* Legal entity disclosure — the licensed party behind the brand */}
         <p className="text-[var(--on-ink-2)] text-[12px] leading-relaxed mb-6 max-w-2xl">
           {SITE.name} is a trading brand of{" "}
-          <a
-            href={SITE.parent.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[var(--on-ink-1)] hover:text-[var(--on-ink-0)] transition-colors"
-          >
-            {SITE.parent.name}
-          </a>
-          , licensed in {SITE.parent.locality}, {SITE.parent.country}
+          <span className="text-[var(--on-ink-1)]">{SITE.parent.name}</span>, a
+          UAE-licensed firm
           {SITE.parent.licenseNo ? ` (Trade Licence No. ${SITE.parent.licenseNo})` : ""}.
         </p>
 
@@ -187,12 +180,12 @@ export default function Footer() {
             © {year} {SITE.name}. All rights reserved.
           </p>
           <div className="flex gap-6 text-[var(--on-ink-2)] text-[11px]">
-            <a href="#" className="hover:text-[var(--on-ink-0)] transition-colors">
+            <Link href="/privacy" className="hover:text-[var(--on-ink-0)] transition-colors">
               Privacy
-            </a>
-            <a href="#" className="hover:text-[var(--on-ink-0)] transition-colors">
+            </Link>
+            <Link href="/terms" className="hover:text-[var(--on-ink-0)] transition-colors">
               Terms
-            </a>
+            </Link>
           </div>
         </div>
       </div>

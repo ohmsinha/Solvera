@@ -14,6 +14,7 @@ const LINKS = [
   { label: "Impact", href: "/#roi" },
   { label: "Process", href: "/#process" },
   { label: "Industries", href: "/#industries" },
+  { label: "About", href: "/about" },
   { label: "FAQ", href: "/#faq" },
 ];
 
@@ -61,7 +62,7 @@ export default function Navbar() {
         <Link
           href="/"
           className="flex items-center gap-2.5 group"
-          aria-label="Solvera AI — home"
+          aria-label="Solvera — home"
         >
           <div className="w-7 h-7 rounded-md bg-[var(--accent-0)] flex items-center justify-center">
             <span className="text-[var(--paper-0)] text-xs font-bold tracking-tight">
@@ -69,7 +70,7 @@ export default function Navbar() {
             </span>
           </div>
           <span className="text-[15px] font-semibold tracking-tight text-[var(--ink-0)]">
-            Solvera AI
+            Solvera
           </span>
         </Link>
 

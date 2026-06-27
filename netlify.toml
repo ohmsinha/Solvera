@@ -1,4 +1,4 @@
-# Netlify configuration for the Solvera AI Next.js app.
+# Netlify configuration for the Solvera Next.js app.
 # This is a server-rendered / statically-generated Next.js site (NOT a static
 # SPA). The official Next.js runtime plugin handles routing, SSG, and any
 # server rendering — do not add a "/* -> /index.html" SPA redirect or set the

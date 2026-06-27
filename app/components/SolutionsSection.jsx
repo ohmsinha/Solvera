@@ -19,7 +19,6 @@ const SOLUTIONS = [
     tag: "Conversational AI",
     name: "Inbox Agent",
     body: "Replies to every inbound lead on WhatsApp and web in seconds, around the clock, and books the meeting before a competitor does.",
-    metric: "45 min → 1.2 sec response",
   },
   {
     icon: Route,
@@ -27,7 +26,6 @@ const SOLUTIONS = [
     tag: "Sales automation",
     name: "Pipeline",
     body: "Captures, enriches, and routes every lead straight into your CRM — no manual entry, no leads sitting in an inbox overnight.",
-    metric: "0 leads dropped",
   },
   {
     icon: FileSearch,
@@ -35,7 +33,6 @@ const SOLUTIONS = [
     tag: "Document intelligence",
     name: "Parser",
     body: "Reads contracts, invoices, and forms, then pushes validated data into your systems and flags what needs a human.",
-    metric: "Contract audit: 3 hrs → 45 sec",
   },
   {
     icon: LifeBuoy,
@@ -43,7 +40,6 @@ const SOLUTIONS = [
     tag: "Support automation",
     name: "Desk",
     body: "Resolves routine and complex support requests across every channel, and escalates the rest with full context.",
-    metric: "40% faster resolution",
   },
   {
     icon: Activity,
@@ -51,7 +47,6 @@ const SOLUTIONS = [
     tag: "Operational dashboards",
     name: "Pulse",
     body: "Turns scattered operational data into one live view your team actually uses to make decisions in the moment.",
-    metric: "Real-time visibility",
   },
   {
     icon: Target,
@@ -59,7 +54,6 @@ const SOLUTIONS = [
     tag: "Lead qualification",
     name: "Scout",
     body: "Scores and qualifies inbound automatically, so your team spends its time only on the buyers who are ready.",
-    metric: "3.2× faster qualification",
   },
 ];
 
@@ -87,8 +81,8 @@ export default function SolutionsSection() {
           <Reveal delay={0.15}>
             <div className="max-w-sm">
               <p className="text-[var(--ink-2)] text-base leading-relaxed">
-                Production-tested systems we have shipped before — tuned to your
-                data and live fast, not rebuilt from scratch.
+                Patterns we build from — proven approaches we configure to your
+                data and your tools, rather than starting from a blank page.
               </p>
               <Link
                 href="/solutions"
@@ -133,10 +127,7 @@ export default function SolutionsSection() {
                     {s.body}
                   </p>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-[var(--line-0)]">
-                    <span className="tnum text-[var(--accent-0)] text-[13px] font-semibold font-[family-name:var(--font-mono)]">
-                      {s.metric}
-                    </span>
+                  <div className="flex items-center justify-end pt-4 border-t border-[var(--line-0)]">
                     <span className="flex items-center gap-1 text-[var(--ink-2)] text-sm font-medium group-hover:text-[var(--accent-0)] transition-colors">
                       Explore
                       <ArrowUpRight
