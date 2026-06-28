@@ -68,9 +68,9 @@ export default function Navbar() {
           <img
             src="/brand/solvera-horizontal.svg"
             alt="Solvera"
-            width={116}
-            height={32}
-            className="h-8 w-auto"
+            width={152}
+            height={42}
+            className="h-[42px] w-auto"
           />
         </Link>
 

@@ -42,11 +42,11 @@ export const SITE = {
     instagram: "https://www.instagram.com/solvera.ai", // TODO: real handle
   },
   services: [
-    "AI agents",
-    "Workflow automation",
+    "Custom models & integrations",
+    "Sales & CRM automation",
     "Conversational AI",
     "Document intelligence",
-    "Sales & CRM automation",
-    "Custom models & integrations",
+    "Workflow automation",
+    "AI agents",
   ],
 };

@@ -14,18 +14,18 @@ import { Reveal, Stagger, StaggerItem, RevealText } from "./Motion";
 
 const SERVICES = [
   {
-    icon: Bot,
-    slug: "ai-agents",
-    title: "AI agents",
-    body: "Autonomous agents that run real workflows end to end — qualifying leads, answering customers, and updating your systems without supervision.",
-    outcome: "Works 24/7, no headcount added",
+    icon: Cpu,
+    slug: "custom-models-integrations",
+    title: "Custom models & integrations",
+    body: "Bespoke models and secure integrations wired into your stack, built to fit your operations rather than the other way round.",
+    outcome: "Fits your systems",
   },
   {
-    icon: Workflow,
-    slug: "workflow-automation",
-    title: "Workflow automation",
-    body: "We connect the tools your team already uses and remove the manual copy-paste, re-keying, and chasing between them.",
-    outcome: "Hours back every week",
+    icon: GitMerge,
+    slug: "sales-crm-automation",
+    title: "Sales & CRM automation",
+    body: "Capture, enrich, and route every lead into your CRM the moment it lands — and keep the data clean as it scales.",
+    outcome: "No lead left waiting",
   },
   {
     icon: MessagesSquare,
@@ -42,18 +42,18 @@ const SERVICES = [
     outcome: "Minutes instead of hours",
   },
   {
-    icon: GitMerge,
-    slug: "sales-crm-automation",
-    title: "Sales & CRM automation",
-    body: "Capture, enrich, and route every lead into your CRM the moment it lands — and keep the data clean as it scales.",
-    outcome: "No lead left waiting",
+    icon: Workflow,
+    slug: "workflow-automation",
+    title: "Workflow automation",
+    body: "We connect the tools your team already uses and remove the manual copy-paste, re-keying, and chasing between them.",
+    outcome: "Hours back every week",
   },
   {
-    icon: Cpu,
-    slug: "custom-models-integrations",
-    title: "Custom models & integrations",
-    body: "Bespoke models and secure integrations wired into your stack, built to fit your operations rather than the other way round.",
-    outcome: "Fits your systems",
+    icon: Bot,
+    slug: "ai-agents",
+    title: "AI agents",
+    body: "Autonomous agents that run real workflows end to end — qualifying leads, answering customers, and updating your systems without supervision.",
+    outcome: "Works 24/7, no headcount added",
   },
 ];
 

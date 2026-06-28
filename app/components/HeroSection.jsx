@@ -80,6 +80,12 @@ export default function HeroSection() {
           />
         </motion.div>
 
+        {/* Top scrim — keeps the navbar logo & links legible over the bright hero */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[var(--paper-0)] to-transparent z-[5]"
+        />
+
         {/* Hero content */}
         <motion.div
           style={{ opacity: textOpacity, y: textY }}
