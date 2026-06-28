@@ -28,7 +28,7 @@ export const SITE = {
   tagline: "Practical AI systems for modern teams",
   description:
     "Solvera is an AI automation consultancy in the UAE that designs, deploys, and operates practical AI systems — agents, automations, and internal tools — that remove manual work and measurably improve operations.",
-  email: "hello@solverame.com",
+  email: "info@solverame.com",
   phone: "", // TODO: real number once a business line is live
   address: {
     country: "AE",
